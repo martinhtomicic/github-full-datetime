@@ -12,6 +12,13 @@ In short:
 
 Github community discussion: https://github.com/orgs/community/discussions/58663
 
+## Result
+
+Displayed in 24-hour format.\
+Under / After the relative time.\
+Your brower's local timezone.\
+<img width="149" alt="Screenshot 2024-05-30 at 11 44 44" src="https://github.com/BitSteve/github-full-datetime/assets/93230279/603ef4f4-a47e-4451-bef7-c6c22cbc2b24">
+
 
 ## An Alternative Approach
 
