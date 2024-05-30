@@ -54,10 +54,14 @@ if (window.location.href.match(/^https:\/\/github\.com\/.*$/)) {
   function hasClassWithSuffix(suffix) {
     const allElements = document.querySelectorAll("*");
 
+    counter = 0;
     for (const element of allElements) {
       for (const className of element.classList) {
         if (className.endsWith(suffix)) {
-          return true;
+          counter++;
+          if (counter > 5) {
+            return true;
+          }
         }
       }
     }
@@ -73,7 +77,7 @@ if (window.location.href.match(/^https:\/\/github\.com\/.*$/)) {
   }
 
   // Initial call to update the display
-  //   updateRunTimeDisplay();
+  updateRunTimeDisplay();
 
   // Set up a polling mechanism to check for changes every 2 seconds
   setInterval(checkForChanges, 2000);
