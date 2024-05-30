@@ -1,23 +1,16 @@
 if (window.location.href.match(/^https:\/\/github\.com\/.*$/)) {
   function formatDateTime(date) {
-    // Format the date part
-    const datePart = date
-      .toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "2-digit",
-      })
-      .replace(",", ""); // Remove the comma
-
-    // Format the time part
-    const timePart = date.toLocaleTimeString("en-US", {
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const str = new Intl.DateTimeFormat("en-US", {
+      timeZone: timeZone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
       hour: "2-digit",
       minute: "2-digit",
       hour12: false,
-    });
-
-    // Combine the date and time parts
-    return `${datePart} ${timePart}`;
+    }).format(date);
+    return str;
   }
 
   function updateRunTimeDisplay() {
@@ -31,6 +24,7 @@ if (window.location.href.match(/^https:\/\/github\.com\/.*$/)) {
       if (fullTime && !el.classList.contains("full-time-updated")) {
         const newElement = document.createElement("div");
         newElement.textContent = `${localTime}`;
+        newElement.style.fontSize = "12px"; // A little smaller to fix the layout.
         // newElement.style.cssText = 'position: absolute; top: 0; left: 0;';
         el.parentElement.style = "position: relative; white-space: nowrap;";
         // Hide the relative time.
