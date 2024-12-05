@@ -23,16 +23,20 @@ if (window.location.href.match(/^https:\/\/github\.com\/.*$/)) {
       const localTime = formatDateTime(new Date(fullTime));
       if (fullTime && !el.classList.contains("full-time-updated")) {
         const newElement = document.createElement("div");
-        newElement.textContent = `${localTime}`;
+        const previousSibling = el.previousSibling;
+        const space =
+          previousSibling &&
+          previousSibling.nodeType === Node.TEXT_NODE &&
+          previousSibling.textContent.trim() !== ""
+            ? " "
+            : "";
+        newElement.textContent = `${space}${localTime}`; // Add a space before the date if necessary - used e.g. when looking at commits.
         newElement.style.fontSize = "12px"; // A little smaller to fix the layout.
-        // newElement.style.cssText = 'position: absolute; top: 0; left: 0;';
         el.parentElement.style = "position: relative; white-space: nowrap;";
-        // Hide the relative time.
-        // el.style = "display: none; visibility: hidden;";
 
         // Remove or hide the SVG element
         const svgElement = el.parentElement.querySelector(
-          "svg.octicon-calendar",
+          "svg.octicon-calendar"
         );
         if (svgElement) {
           svgElement.style.display = "none"; // Hide the SVG element
