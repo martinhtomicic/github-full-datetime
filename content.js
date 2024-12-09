@@ -33,7 +33,7 @@ if (window.location.href.match(/^https:\/\/github\.com\/.*$/)) {
         newElement.textContent = `${space}${localTime}`; // Add a space before the date if necessary - used e.g. when looking at commits.
         newElement.style.fontSize = "12px"; // A little smaller to fix the layout.
         newElement.style.display = "inline"; // Ensure the element is displayed inline
-        el.parentElement.style = "position: relative; white-space: nowrap;";
+        el.parentElement.style = "position: relative;";
 
         // Remove or hide the SVG element
         const svgElement = el.parentElement.querySelector(
