@@ -18,7 +18,7 @@ Displayed in 24-hour format.\
 Under / After the relative time.\
 Your brower's local timezone.\
 DD-MM-YY format.\
-Screenshot 2024-12-09 at 17.24.53
+<img width="129" alt="Screenshot 2024-12-09 at 17 24 53" src="https://github.com/user-attachments/assets/143c8d8d-c57a-4030-887f-db6f095d1819">
 
 
 ## An Alternative Approach
