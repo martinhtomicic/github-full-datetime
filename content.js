@@ -24,8 +24,8 @@ if (window.location.href.match(/^https:\/\/github\.com\/.*$/)) {
       if (fullTime && !el.classList.contains("full-time-updated")) {
         const newElement = document.createElement("div");
         newElement.textContent = `${localTime}`;
-        newElement.style =
-          "fontSize: 12px; display: block; whiteSpace: nowrap;";
+        newElement.style.cssText =
+          "font-size: 12px; display: block; white-space: nowrap;";
         el.parentElement.style = "position: relative;";
 
         // Remove or hide the SVG element
