@@ -1,7 +1,7 @@
 if (window.location.href.match(/^https:\/\/github\.com\/.*$/)) {
   function formatDateTime(date) {
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const str = new Intl.DateTimeFormat("en-US", {
+    const str = new Intl.DateTimeFormat("en-GB", {
       timeZone: timeZone,
       year: "numeric",
       month: "2-digit",
@@ -22,16 +22,17 @@ if (window.location.href.match(/^https:\/\/github\.com\/.*$/)) {
       const fullTime = el.getAttribute("datetime");
       const localTime = formatDateTime(new Date(fullTime));
       if (fullTime && !el.classList.contains("full-time-updated")) {
-        const newElement = document.createElement("div");
+        const newElement = document.createElement("span");
         const previousSibling = el.previousSibling;
         const space =
           previousSibling &&
           previousSibling.nodeType === Node.TEXT_NODE &&
           previousSibling.textContent.trim() !== ""
-            ? " "
+            ? " " 
             : "";
         newElement.textContent = `${space}${localTime}`; // Add a space before the date if necessary - used e.g. when looking at commits.
         newElement.style.fontSize = "12px"; // A little smaller to fix the layout.
+        newElement.style.display = "inline"; // Ensure the element is displayed inline
         el.parentElement.style = "position: relative; white-space: nowrap;";
 
         // Remove or hide the SVG element
